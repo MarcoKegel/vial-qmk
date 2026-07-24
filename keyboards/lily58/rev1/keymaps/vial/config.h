@@ -43,7 +43,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USE_SERIAL_PD2
 
-#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 100
+/*
+Legacy Behavior: With TAPPING_FORCE_HOLD, holding a key after tapping it sends the hold action rather than repeating the tap. 
+Compatibility Warning: Enabling this globally breaks Tap Toggle functionalities (such as TT or One Shot Tap Toggle). 
+Modern Replacement: Use QUICK_TAP_TERM to define how long a tap must be held to trigger auto-repeat; setting it to 0 disables auto-repeat entirely. 
+*/
+// #define TAPPING_FORCE_HOLD
+#define QUICK_TAP_TERM 0
 
+#define TAPPING_TERM 200
+#define PERMISSIVE_HOLD
+
+// needed for lily58 with pro micro µc otherwise the right hand side is ignored
 #define SPLIT_USB_DETECT
